@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.min.css">
+  <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Brosko Volna | Reserved</title>
+</head>
+<body>
+
+  <div class="reserved">
+    <a class="logo" href="">
+        <img src="./assets/img/logo.svg" alt="Volna" width="131" height="43">
+    </a>
+
+    <div class="form-content">
+      <div class="close"></div>
+      <div class="title">Бронирование посещения</div>
+
+
+      <form class="form" action="">
+
+        <div class="form-block">
+          <p>Укажите персональные данные</p>
+          
+          <div class="form-block-inputs flex-column">
+            <input type="text" class="input" placeholder="Имя*">
+            <input type="text" class="input" placeholder="Фамилия">
+            <input type="text" class="input" id="tel" placeholder="+7">
+            <input type="text" class="input" placeholder="E-mail*">
+          </div>
+
+        </div>
+
+        <div class="form-block">
+          <p>Выберите дату и время посещения</p>
+          <div class="form-block-inputs flex-row">
+
+            <input type="text" id="datepicker" class="input input-date" placeholder="25.09.2024">
+            <select name="select-time" id="select-time" class="input input-time">
+              <option value="13:00-14:00">13:00-14:00</option>
+              <option value="14:00-15:00">14:00-15:00</option>
+              <option value="15:00-16:00">15:00-16:00</option>
+              <option value="17:00-18:00">17:00-18:00</option>
+            </select>
+
+          </div>
+        </div>
+        
+        <div class="form-block form-tariff">
+          <p>Выберите тариф</p>
+
+          <div class="form-tariff-nav">
+            <button class="form-tariff-btn active" data-tariff="1">Безлимит</button>
+            <button class="form-tariff-btn" data-tariff="2">3+1 час</button>
+            <button class="form-tariff-btn" data-tariff="3">1 час</button>
+          </div>
+
+          <div class="form-tariff-tabs">
+            <div class="form-tariff-tab" data-tab-tariff="1">
+              <div class="form-tariff-tab-row">
+                <div class="left">Взрослый</div>
+                <div class="price" id="price">4 950 ₽</div>
+                <div class="counter">
+                  <div class="counter-btn minus" id="minus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19" stroke="#3B62BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <span class="counter-num" id="num">0</span>
+                  <div class="counter-btn plus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 12.998H13V17.998C13 18.2632 12.8946 18.5176 12.7071 18.7051C12.5196 18.8926 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8926 11.2929 18.7051C11.1054 18.5176 11 18.2632 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8926 5.29289 12.7051C5.10536 12.5176 5 12.2632 5 11.998C5 11.7328 5.10536 11.4784 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.998C11 5.73278 11.1054 5.47843 11.2929 5.29089C11.4804 5.10336 11.7348 4.998 12 4.998C12.2652 4.998 12.5196 5.10336 12.7071 5.29089C12.8946 5.47843 13 5.73278 13 5.998V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4784 19 11.7328 19 11.998C19 12.2632 18.8946 12.5176 18.7071 12.7051C18.5196 12.8926 18.2652 12.998 18 12.998Z" fill="#3B62BA" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-tariff-tab-row">
+                <div class="left">
+                  Детский
+                  <span>От 3 до 14 лет</span>
+                </div>
+                <div class="price" id="price">3 700 ₽</div>
+                <div class="counter">
+                  <div class="counter-btn minus" id="minus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19" stroke="#3B62BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <span class="counter-num" id="num">0</span>
+                  <div class="counter-btn plus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 12.998H13V17.998C13 18.2632 12.8946 18.5176 12.7071 18.7051C12.5196 18.8926 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8926 11.2929 18.7051C11.1054 18.5176 11 18.2632 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8926 5.29289 12.7051C5.10536 12.5176 5 12.2632 5 11.998C5 11.7328 5.10536 11.4784 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.998C11 5.73278 11.1054 5.47843 11.2929 5.29089C11.4804 5.10336 11.7348 4.998 12 4.998C12.2652 4.998 12.5196 5.10336 12.7071 5.29089C12.8946 5.47843 13 5.73278 13 5.998V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4784 19 11.7328 19 11.998C19 12.2632 18.8946 12.5176 18.7071 12.7051C18.5196 12.8926 18.2652 12.998 18 12.998Z" fill="#3B62BA" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+             
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-bottom">
+
+          <div class="form-policy">
+            <input type="checkbox" class="checkbox">
+            <span>Отправляя заявку, я даю согласие на обработку 
+              <a href="">Персональных данных</a> и ознакомлен с 
+              <a href="">Политикой конфиденциальности</a>
+            </span>
+          </div>
+
+          <div class="form-policy">
+            <input type="checkbox" class="checkbox">
+            <span>
+              Ознакомлен и согласен с правилами посещения 
+              <br/> водно-оздоровительного комплекса Volna
+            </span>
+          </div>
+
+          <button type="submit" class="form-btn">Подтверждение</button>
+
+        </div>
+
+      </form>
+    </div>
+
+
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.min.js"></script>
+  <script src="./assets/libs/imask.js"></script>
+  <script src="./assets/js/app.js"></script>
+  
+</body>
+</html>

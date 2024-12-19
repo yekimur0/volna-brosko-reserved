@@ -1,0 +1,15 @@
+{
+  "name": "volna-reserved",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruslan Pavlov 01.cat",
+  "license": "ISC",
+  "dependencies": {
+    "imask": "^7.6.1",
+    "inputmask-core": "^2.2.0"
+  }
+}
