@@ -1,3 +1,5 @@
+@import './vars.css';
+
 @font-face {
   font-family: 'Bitum';
   src: url('../fonts/Bitum-Bold.woff') format('woff');
@@ -8,7 +10,7 @@
 @font-face {
   font-family: 'Bitum';
   src: url('../fonts/Bitum-light.woff') format('woff');
-  font-weight: 300; /* light вес обычно соответствует 300 */
+  font-weight: 300; 
   font-style: normal;
 }
 
@@ -18,14 +20,7 @@
   margin: 0;
 }
 
-:root {
-  --font-family: "Bitum", sans-serif;
-  --second-family: "Lato", sans-serif;
 
-  --white: #fff;
-  --black: #000;
-  --blue: #3b62ba;
-}
 
 body {
   font-family: var(--font-family);
@@ -75,6 +70,13 @@ body {
   }
 
   & .form {
+    position: relative;
+    & .form-step {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
     p {
       font-family: var(--font-family);
       font-weight: 400;
@@ -86,6 +88,19 @@ body {
     }
     & .form-block {
       margin-bottom: clamp(20px, 2vw, 39px);
+      position: relative;
+      &:has(.error-input) {
+        &:before {
+          content: 'Не все поля заполнены!';
+          position: absolute;
+          right: 0;
+          top: 0;
+          font-size: 12px;
+          color: var(--white);
+          background-color: red;
+          padding: 5px;
+        }
+      }
     }
     & .flex-column {
       display: flex;
@@ -172,6 +187,14 @@ body {
            }
       }
 
+      & .form-tariff-tab {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
       & .form-tariff-tab-row {
         display: flex;
         align-items: center;
@@ -225,6 +248,10 @@ body {
             letter-spacing: -0.02em;
             text-align: center;
             color: var(--blue);
+            min-width: 30px;
+            &::selection {
+              background-color: transparent;
+            }
           }
           & .counter-btn {
             font-family: var(--font-family);
@@ -297,5 +324,76 @@ body {
       }
     }
   }
- 
+  
+  /* accept info form */
+
+  .form-step-top {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(22px, 3vw, 46px);
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--blue);
+    margin-bottom: 32px;
+  }
+
+  .form-info {
+    
+    & .form-info-title {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 110%;
+      letter-spacing: -0.06em;
+      color: var(--blue);
+      margin-bottom: clamp(16px, 2vw, 32px);
+    }
+    & .form-info-block {
+      max-width: 430px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      
+      gap: 14px;
+    }
+    & .form-info-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+
+      /* fonts style */
+
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+      
+    }
+  }
+
+  & .form-total-block span {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -0.06em;
+    color: var(--blue);
+  }
+
+  & .form-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 2vw, 32px);
+    margin-top: 46px;
+
+    & .form-back {
+      background-color: transparent;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+    }
+  }
+  & .error-input {
+    border-bottom: 1px solid red !important;
+  }
 }
