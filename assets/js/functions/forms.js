@@ -1,3 +1,5 @@
+import {setData} from './setData.js';
+
 const form = document.querySelector('.form');
 let isValidate = false;
 
@@ -10,13 +12,17 @@ export function changeStepForm (target) {
 
       if(isValidate) {
         formSteps[0].classList.remove('active');
-        formSteps[1].classList.add('active')
+        formSteps[1].classList.add('active');
+
+        
       }
     }
 
     if (target.dataset.formBtn === 'back') {
       formSteps[0].classList.add('active');
       formSteps[1].classList.remove('active');
+
+      document.querySelector('#info-step').innerHTML = '';
     }
 
 }
@@ -43,6 +49,8 @@ export function validateForms () {
   const date = form.querySelector('input[name="date"]');
   const time = form.querySelector('[name="select-time"]');
 
+   
+
   const requireElems = [name, secondName, phone, email, date, time];
 
   
@@ -53,8 +61,23 @@ export function validateForms () {
     email: email.value,
     date: date.value,
     time: time.value,
+
+    tickets: {
+      unlimited: {
+        adult: document.querySelector('[data-unlimited="adult"]').textContent,
+        child: document.querySelector('[data-unlimited="child"]').textContent,
+      },
+      promo: {
+        adult: document.querySelector('[data-promo="adult"]').textContent,
+        child: document.querySelector('[data-promo="child"]').textContent,
+      },
+      hour: {
+        adult: document.querySelector('[data-hour="adult"]').textContent,
+        child: document.querySelector('[data-hour="child"]').textContent,
+      }
+
+    }
   }
- 
 
   
   for (const elem of requireElems) {
@@ -70,5 +93,7 @@ export function validateForms () {
 
   isSuccessData ? isValidate = true : isValidate = false;
  
-  
+  setData(data);
 }
+
+

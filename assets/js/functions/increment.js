@@ -13,7 +13,7 @@ export function decrement (target) {
   const parent = target.closest('.form-tariff-tab-row');
   let counterNumb = parent.querySelector('#num');
 
-  if (+counterNumb.textContent <= 1) {
+  if (+counterNumb.textContent <= 0) {
     return
   }
 
